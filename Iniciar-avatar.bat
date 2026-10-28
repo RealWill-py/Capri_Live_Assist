@@ -1,5 +1,6 @@
-color a
+
 @echo off
+color a
 setlocal
 cd /d "%~dp0"
 echo Iniciando o Capri em http://localhost:8000
