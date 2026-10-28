@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Painel da Capri</title>
+  <style>
+    :root{font-family:Inter,ui-sans-serif,system-ui,sans-serif;color:#f8f5ff;background:#100d18;color-scheme:dark}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 90% 0,#39234c 0,transparent 40%),#100d18}.wrap{max-width:940px;margin:auto;padding:42px 22px}.eyebrow{color:#c7a8ff;font-size:12px;font-weight:800;letter-spacing:.18em}h1{font-size:clamp(32px,6vw,54px);margin:8px 0}h2{font-size:22px;margin:0 0 8px}p{color:#beb6ca;line-height:1.5}a{color:#c7a8ff}.intro{max-width:680px;margin:0 0 24px}.tabs{display:flex;gap:8px;border-bottom:1px solid #ffffff20;margin:24px 0 20px}.tab{background:transparent;color:#b9b0c6;border-radius:10px 10px 0 0;padding:12px 18px;border-bottom:2px solid transparent}.tab[aria-selected=true]{color:#fff;background:#ffffff0c;border-bottom-color:#c7a8ff}.tab-panel[hidden]{display:none}.grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:18px 0}.card{background:#1c1726;border:1px solid #ffffff18;border-radius:18px;padding:20px}.card.selected{border-color:#b78aff;box-shadow:0 0 0 1px #b78aff44}.card-title{display:flex;justify-content:space-between;align-items:center;gap:8px}.badge{font-size:11px;color:#d8c4ff;background:#8c62d833;padding:5px 9px;border-radius:999px}.badge.off{color:#bdb5c7;background:#ffffff12}label{display:block;font-size:13px;color:#d4cde0;margin:14px 0 7px}input,select,textarea{width:100%;background:#100d18;color:#fff;border:1px solid #ffffff25;border-radius:10px;padding:12px;font:inherit}textarea{min-height:110px;resize:vertical}.row{display:flex;gap:10px;align-items:center}.row>*{flex:1}button{background:#8c62d8;color:white;border:0;border-radius:10px;padding:12px 16px;font:inherit;font-weight:700;cursor:pointer}button:hover{filter:brightness(1.1)}button:disabled{opacity:.6;cursor:wait}button.secondary{background:#ffffff14}.preset-list{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}.preset{background:#ffffff12;padding:9px 12px;font-size:13px}.preset[aria-pressed=true]{background:#8c62d8}.section-note{margin-top:0}.style-card,.profile-manager{margin:18px 0}.style-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.profile-actions{margin-top:10px}.personality-fields{display:grid;gap:12px}.personality-fields textarea{min-height:82px}.status{font-size:13px;margin:10px 0;color:#c7a8ff}.status.bad{color:#ffaaa8}.status.good{color:#8ee0ad}.activity-card{margin-top:16px}.activity-feed{max-height:280px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;margin-top:12px}.activity-item{display:grid;grid-template-columns:auto 1fr;gap:9px;padding:10px 12px;border-radius:10px;background:#ffffff08;line-height:1.4}.activity-item.capri{background:#35254c}.activity-item strong{color:#c7a8ff}.activity-item time{font-size:11px;color:#8e8699;white-space:nowrap}.activity-item span{overflow-wrap:anywhere}.chat{min-height:170px;max-height:360px;overflow:auto;display:flex;flex-direction:column;gap:10px;margin:14px 0}.bubble{padding:12px 14px;border-radius:12px;line-height:1.45;white-space:pre-wrap}.user{align-self:flex-end;background:#382950;max-width:85%}.bot{align-self:flex-start;background:#272132;max-width:85%}.small{font-size:12px;color:#a79caf}.chat-card{margin-top:20px}.chat-input{min-height:74px}.voice-row{margin-top:16px}@media(max-width:650px){.grid,.style-grid{grid-template-columns:1fr}.wrap{padding:26px 15px}.row{align-items:stretch}.tab{flex:1;padding:11px 8px}}
+  </style>
+  <style>.knowledge-card{margin-top:18px}.knowledge-card textarea{min-height:74px}.knowledge-actions{justify-content:flex-start}.knowledge-actions button{flex:0 0 auto}.knowledge-heading{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:18px}.knowledge-list{display:grid;gap:8px;margin-top:10px}.knowledge-item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:12px;align-items:center;padding:12px;border-radius:12px;background:#ffffff08}.knowledge-item p{margin:0;white-space:pre-wrap;overflow-wrap:anywhere;color:#eee8f5}.knowledge-item-actions{display:flex;gap:6px}.knowledge-item-actions button{padding:8px 10px;font-size:12px}.knowledge-empty{padding:14px;border:1px dashed #ffffff25;border-radius:12px;color:#a79caf;font-size:13px}@media(max-width:500px){.knowledge-item{grid-template-columns:1fr}.knowledge-heading{align-items:flex-start;flex-direction:column}}</style>
+  <style>.microphone-card{margin:16px 0 8px;padding:15px;border:1px solid #ffffff18;border-radius:14px;background:#ffffff06}.microphone-card p{margin:8px 0 0}.microphone-row{align-items:center}.microphone-row button{flex:0 0 auto}.microphone-row .status{flex:1;margin:0}.microphone-row button.recording{background:#b64d62}.microphone-transcript{display:block;min-height:1.4em;margin-top:10px;overflow-wrap:anywhere}</style>
+  <style>.avatar-controls{margin:18px 0}.avatar-actions{display:flex;flex-wrap:wrap;gap:9px;margin:16px 0}.avatar-actions button{flex:1 1 130px}.avatar-actions button.demo-action{flex:1 1 100%;background:#5b3c8e}.avatar-controls .status{min-height:1.3em}.avatar-controls details{color:#a79caf;font-size:13px;line-height:1.55}.avatar-controls summary{cursor:pointer;color:#c7a8ff}</style>
+</head>
+<body><main class="wrap">
+  <header>
+    <div class="eyebrow">CAPRI · CENTRAL DE CONTROLE</div><h1>Inteligência e personalidade</h1>
+    <p class="intro">Escolha como Capri pensa e ajuste o jeito dela conversar. Depois, experimente tudo no chat de teste.</p>
+  </header>
+  <nav class="tabs" role="tablist" aria-label="Configurações da Capri">
+    <button id="intelligenceTab" class="tab" type="button" role="tab" aria-selected="true" aria-controls="intelligencePanel">Inteligência</button>
+    <button id="personalityTab" class="tab" type="button" role="tab" aria-selected="false" aria-controls="personalityPanel">Personalidade</button>
+    <button id="twitchTab" class="tab" type="button" role="tab" aria-selected="false" aria-controls="twitchPanel">Twitch</button>
+  </nav>
+  <section id="intelligencePanel" class="tab-panel" role="tabpanel" aria-labelledby="intelligenceTab">
+    <h2>Como Capri pensa</h2><p class="section-note">Escolha onde a inteligência roda. A opção selecionada será usada nas próximas respostas.</p>
+    <div class="grid">
+      <section id="onlineCard" class="card">
+        <div class="card-title"><strong>IA online</strong><span id="onlineBadge" class="badge off">Não selecionada</span></div>
+        <p>Usa a internet e exige uma chave de API. O processamento fica fora deste computador.</p>
+        <label for="apiKey">Chave da API</label><input id="apiKey" type="password" autocomplete="off" placeholder="A chave fica só enquanto o servidor estiver aberto">
+        <label for="onlineModel">Modelo</label><input id="onlineModel" value="gpt-6-luna" autocomplete="off">
+        <button id="chooseOnline" type="button">Usar IA online</button>
+      </section>
+      <section id="ollamaCard" class="card">
+        <div class="card-title"><strong>Ollama local</strong><span id="ollamaBadge" class="badge off">Não selecionado</span></div>
+        <p>Roda neste computador e mantém as mensagens localmente.</p>
+        <label for="ollamaModel">Modelo instalado</label><select id="ollamaModel"><option value="">Procurando Ollama…</option></select>
+        <div id="ollamaStatus" class="status">Verificando Ollama…</div><button id="chooseOllama" class="secondary" type="button">Usar Ollama</button>
+      </section>
+    </div>
+    <section class="card style-card">
+      <h2>Estilo das respostas</h2><p>Defina o tom e quanto detalhe Capri usa no chat.</p>
+      <div class="style-grid">
+        <div><label for="responseTone">Tom</label><select id="responseTone"><option value="natural">Natural</option><option value="warm">Acolhedor</option><option value="playful">Bem-humorado</option><option value="calm">Tranquilo</option></select></div>
+        <div><label for="responseLength">Tamanho</label><select id="responseLength"><option value="short">Curto · até 12 palavras</option><option value="balanced">Equilibrado · até 24 palavras</option><option value="detailed">Detalhado · até 45 palavras</option></select></div>
+      </div>
+      <div class="row"><span id="styleStatus" class="small">Preferências carregadas do computador.</span><button id="saveStyle" type="button">Salvar estilo</button></div>
+    </section>
+    <p class="small">A escolha atual aparece no chat de teste. Você pode trocar de provedor quando quiser.</p>
+  </section>
+  <section id="personalityPanel" class="tab-panel" role="tabpanel" aria-labelledby="personalityTab" hidden>
+    <h2>Quem é a Capri?</h2><p class="section-note">Escolha uma inspiração ou escreva livremente. Você pode combinar ideias e editar tudo antes de salvar.</p>
+    <section class="card profile-manager">
+      <h2>Personalidades salvas</h2><p>Guarde estilos diferentes e volte para qualquer um deles quando quiser.</p>
+      <div class="style-grid">
+        <div><label for="savedPersonalities">Lista</label><select id="savedPersonalities"></select></div>
+        <div><label for="personalityProfileName">Nome do perfil</label><input id="personalityProfileName" maxlength="50" placeholder="Ex.: Capri aventureira"></div>
+      </div>
+      <div class="row profile-actions"><button id="applyProfile" type="button">Usar selecionada</button><button id="saveAsProfile" class="secondary" type="button">Salvar como nova</button></div>
+      <div class="row profile-actions"><button id="savePersonality" class="secondary" type="button">Atualizar selecionada</button><button id="deleteProfile" class="secondary" type="button">Excluir selecionada</button></div>
+      <div id="personalityStatus" class="status" aria-live="polite"></div>
+    </section>
+    <div class="preset-list" role="group" aria-label="Inspirações de personalidade">
+      <button class="preset" type="button" data-preset="amiga" aria-pressed="false">Amiga do chat</button>
+      <button class="preset" type="button" data-preset="comediante" aria-pressed="false">Bem-humorada</button>
+      <button class="preset" type="button" data-preset="aventureira" aria-pressed="false">Aventureira</button>
+      <button class="preset" type="button" data-preset="tranquila" aria-pressed="false">Tranquila</button>
+    </div>
+    <section class="card personality-fields">
+      <div><label for="personality">Jeito de ser</label><textarea id="personality" data-personality maxlength="1500" placeholder="Como ela é no dia a dia? Ex.: curiosa, corajosa, brincalhona, acolhedora..."></textarea></div>
+      <div><label for="personalityHistory">História</label><textarea id="personalityHistory" data-personality maxlength="1500" placeholder="De onde ela veio? O que aconteceu antes de conhecer a comunidade?"></textarea></div>
+      <div><label for="personalityRelationships">Vínculos</label><textarea id="personalityRelationships" data-personality maxlength="1500" placeholder="Como ela se relaciona com o streamer e com quem participa do chat?"></textarea></div>
+      <div><label for="personalityBoundaries">Limites</label><textarea id="personalityBoundaries" data-personality maxlength="1500" placeholder="O que ela deve evitar? Há assuntos ou atitudes que não combinam com a Capri?"></textarea></div>
+      <span id="personalityCount" class="small">0 / 5000 caracteres</span>
+    </section>
+    <section class="card knowledge-card">
+      <h2>O que Capri aprendeu</h2>
+      <p class="section-note">Ensine fatos, preferências, nomes e contexto. Capri poderá usar essas anotações quando forem relevantes. Elas ficam salvas entre personalidades.</p>
+      <label for="knowledgeInput">Nova anotação</label>
+      <textarea id="knowledgeInput" maxlength="500" placeholder="Ex.: Meu jogo favorito é Stardew Valley e gosto de explorar a mina."></textarea>
+      <div class="row knowledge-actions"><button id="addKnowledge" type="button">Adicionar à lista</button><button id="cancelKnowledgeEdit" class="secondary" type="button" hidden>Cancelar edição</button></div>
+      <div id="knowledgeStatus" class="status" aria-live="polite"></div>
+      <div class="knowledge-heading"><strong>Anotações salvas</strong><span id="knowledgeCount" class="small">0 / 30 · 0 / 5000 caracteres</span></div>
+      <div id="knowledgeList" class="knowledge-list" aria-live="polite"></div>
+    </section>
+    <p class="small">As alterações ficam salvas neste computador e passam a valer nas próximas respostas.</p>
+  </section>
+  <section id="twitchPanel" class="tab-panel" role="tabpanel" aria-labelledby="twitchTab" hidden>
+    <h2>Conectar ao chat da Twitch</h2>
+    <p class="section-note">Cadastre um aplicativo Twitch e autorize a conta que Capri usará para ler e enviar mensagens. A conexão usa IRC seguro e não pede senha nem Client Secret; pede somente as permissões de leitura e envio no chat.</p>
+    <section class="card">
+      <p><a href="https://dev.twitch.tv/console/apps" target="_blank" rel="noreferrer">Abrir painel de desenvolvedor da Twitch</a> · Crie um aplicativo e copie o Client ID.</p>
+      <div class="style-grid">
+        <div><label for="twitchClientId">Client ID do aplicativo</label><input id="twitchClientId" autocomplete="off" placeholder="Cole o Client ID"></div>
+        <div><label for="twitchChannel">Canal da transmissão</label><input id="twitchChannel" autocomplete="off" placeholder="Nome do canal, sem @ ou #"></div>
+      </div>
+      <label for="twitchReplyMode">Quando Capri deve responder?</label>
+      <select id="twitchReplyMode"><option value="mentions">Só quando mencionarem Capri</option><option value="conversation">Participar: responder ao contexto das últimas 20 mensagens</option></select>
+      <div class="row profile-actions"><button id="connectTwitch" type="button">Conectar conta Twitch</button><button id="disconnectTwitch" class="secondary" type="button" disabled>Desconectar</button></div>
+      <div id="twitchStatus" class="status" aria-live="polite">Desconectada.</div>
+      <div id="twitchAuthorization" class="card" hidden>
+        <strong>Autorize a Capri na Twitch</strong>
+        <p>Entre na conta que enviará as mensagens, abra a página abaixo e digite este código:</p>
+        <div class="row"><code id="twitchUserCode" class="badge"></code><a id="twitchVerificationLink" href="https://www.twitch.tv/activate" target="_blank" rel="noreferrer">Abrir ativação da Twitch</a></div>
+      </div>
+      <p class="small">O Client ID e o canal ficam salvos neste computador. O token de autorização fica apenas na memória enquanto o Capri estiver aberto; ao reiniciar o programa, conecte a conta novamente.</p>
+    </section>
+    <section class="card activity-card">
+      <div class="card-title"><h2>Atividade recente</h2><span id="activityCount" class="small">Aguardando mensagens</span></div>
+      <p class="small">Mensagens recebidas e enviadas pela Capri no chat. Ver mensagens aqui confirma que a conexão está ativa.</p>
+      <div id="twitchActivity" class="activity-feed" aria-live="polite"><p class="small">As mensagens do chat aparecerão aqui quando a conexão estiver ativa.</p></div>
+    </section>
+  </section>
+  <section class="card chat-card">
+    <div class="card-title"><h2>Experimentar a Capri</h2><span id="activeProvider" class="badge">Carregando…</span></div>
+    <div id="chat" class="chat" aria-live="polite"></div>
+    <label for="message">Escreva uma mensagem</label><div class="row"><textarea id="message" class="chat-input" maxlength="1500" placeholder="Mande uma mensagem como se estivesse no chat…"></textarea><button id="send" type="button">Enviar</button></div>
+    <div id="replyStatus" class="status" aria-live="polite"></div>
+    <section class="microphone-card" aria-labelledby="microphoneHeading">
+      <h3 id="microphoneHeading">Conversar por voz</h3>
+      <p class="small">Grave uma fala de até 15 segundos. A transcrição acontece localmente e a Capri responde em voz alta pelo avatar.</p>
+      <div class="row microphone-row"><button id="microphoneButton" class="secondary" type="button">Começar a falar</button><span id="microphoneStatus" class="status" aria-live="polite">Reconhecimento local: verificando…</span></div>
+      <span id="microphoneTranscript" class="microphone-transcript small" aria-live="polite"></span>
+      <p class="small">O microfone só grava enquanto você inicia uma fala; a gravação é enviada apenas ao servidor local para transcrição.</p>
+    </section>
+    <div class="row voice-row"><span id="voiceStatus" class="small">Voz neural: verificando…</span><button id="testVoice" class="secondary" type="button">Ouvir a voz da Capri</button></div>
+  </section>
+  <section class="card avatar-controls" aria-labelledby="avatarControlsHeading">
+    <div class="card-title"><h2 id="avatarControlsHeading">Animações do avatar</h2><span class="badge">Controle do OBS</span></div>
+    <p class="section-note">Acione uma animação na Capri ou veja a demonstração completa no overlay do OBS.</p>
+    <div class="avatar-actions" role="group" aria-label="Animações da Capri">
+      <button type="button" data-avatar-action="idle">Repouso</button>
+      <button type="button" data-avatar-action="talk">Falar</button>
+      <button type="button" data-avatar-action="sleep">Dormir</button>
+      <button type="button" data-avatar-action="wave">Teletransportar</button>
+      <button type="button" data-avatar-action="laugh">Rir</button>
+      <button type="button" data-avatar-action="think">Pensar</button>
+      <button type="button" data-avatar-action="glitch">Glitch</button>
+      <button type="button" class="demo-action" data-avatar-action="demo">Demonstrar todas as animações</button>
+    </div>
+    <div id="avatarActionStatus" class="status" aria-live="polite"></div>
+    <details><summary>Como funcionam</summary><p>Falar, rir, pensar, repouso e teletransporte usam os clipes do modelo. Surpresa, tédio, sono e passeio recriam movimentos da rotina original com o esqueleto do mesmo personagem. Inspirada nessa rotina, Capri escolhe movimentos aleatórios depois de períodos de repouso; às vezes desliza pela tela e, ocasionalmente, se teletransporta para outra posição com glitch. As ações são enviadas ao overlay da fonte Navegador do OBS.</p></details>
+  </section>
+  <p class="small">As falas da Capri aparecem no avatar do OBS. A conversa por microfone e o chat da Twitch usam o contexto recente em comum.</p>
+</main><script type="module" src="./painel.js"></script></body></html>
